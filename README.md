@@ -3,16 +3,12 @@
 
 #### Depedencies
 
-* MongoDB
-* Node / Npm
+* Phone-book API:https://github.com/fredmoreira/phone-book - Clone it, setup and run server
 * Newman
 
 #### Setup
+
 * npm install - g newman
-
-#### Run server
-
-* npm start
 
 ### Run Postman test with Newman
 
