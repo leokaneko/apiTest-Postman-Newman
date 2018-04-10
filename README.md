@@ -8,7 +8,7 @@
 
 #### Setup
 
-* npm install - g newman
+* npm install -g newman
 
 ### Run Postman test with Newman
 
