@@ -1,0 +1,868 @@
+{
+	"info": {
+		"_postman_id": "a69073bb-dfbe-4785-8879-b981e4066976",
+		"name": "phone-book-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Recupera contato por nome",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f9339631-29c8-4d0b-a760-a83c2bc7e612",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json()[0];",
+							"",
+							"pm.test(\"Status code 200 | \" + pm.response.code, function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Tempo de resposta menor que 100ms | \" + pm.response.responseTime + \"ms\" , function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(100);",
+							"});",
+							"",
+							"pm.test(\"ID Contato = 56d5efa8c82593800291c02b | \"+ jsonData._id, function () {",
+							"    ",
+							"    pm.expect(jsonData._id).to.eql('56d5efa8c82593800291c02b');",
+							"});",
+							"",
+							"pm.test(\"Telefone Celular = 0552188889999 | \"+ jsonData.mobilephone, function () {",
+							"    ",
+							"    pm.expect(jsonData.mobilephone).to.eql('0552188889999');",
+							"});",
+							"",
+							"pm.test(\"Telefone Residencial = 0552133332222 | \"+ jsonData.homephone, function () {",
+							"    ",
+							"    pm.expect(jsonData.homephone).to.eql('0552133332222');",
+							"});",
+							"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:5000/contacts?name=Tester",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"contacts"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Tester"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Recupera contato por celular",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ceef6e07-cbb0-47da-b257-41a41e7b3e5b",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json()[0];",
+							"",
+							"pm.test(\"Status code 200 | \" + pm.response.code, function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Tempo de resposta menor que 100ms | \" + pm.response.responseTime + \"ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(100);",
+							"});",
+							"",
+							"pm.test(\"ID Contato = 56d5efa8c82593800291c02b | \"+ jsonData._id, function () {",
+							"    ",
+							"    pm.expect(jsonData._id).to.eql('56d5efa8c82593800291c02b');",
+							"});",
+							"",
+							"pm.test(\"Telefone Celular = 0552188889999 | \"+ jsonData.mobilephone, function () {",
+							"    ",
+							"    pm.expect(jsonData.mobilephone).to.eql('0552188889999');",
+							"});",
+							"",
+							"pm.test(\"Telefone Residencial = 0552133332222 | \"+ jsonData.homephone, function () {",
+							"    ",
+							"    pm.expect(jsonData.homephone).to.eql('0552133332222');",
+							"});",
+							"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:5000/contacts?mobilephone=0552188889999",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"contacts"
+					],
+					"query": [
+						{
+							"key": "mobilephone",
+							"value": "0552188889999"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Recupera contato por tel. residencial",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "dae67e47-8a8f-4d07-b52a-080cb7f7d304",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json()[0];",
+							"",
+							"pm.test(\"Status code 200 | \" + pm.response.code, function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Tempo de resposta menor que 100ms | \" + pm.response.responseTime + \"ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(100);",
+							"});",
+							"",
+							"pm.test(\"ID Contato = 56d5efa8c82593800291c02b | \"+ jsonData._id, function () {",
+							"    ",
+							"    pm.expect(jsonData._id).to.eql('56d5efa8c82593800291c02b');",
+							"});",
+							"",
+							"pm.test(\"Telefone Celular = 0552188889999 | \"+ jsonData.mobilephone, function () {",
+							"    ",
+							"    pm.expect(jsonData.mobilephone).to.eql('0552188889999');",
+							"});",
+							"",
+							"pm.test(\"Telefone Residencial = 0552133332222 | \"+ jsonData.homephone, function () {",
+							"    ",
+							"    pm.expect(jsonData.homephone).to.eql('0552133332222');",
+							"});",
+							"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:5000/contacts?homephone=0552133332222",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"contacts"
+					],
+					"query": [
+						{
+							"key": "homephone",
+							"value": "0552133332222"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Recupera todos os Contatos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "36de4ab4-fe56-4fa6-90d8-757d34b77d11",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code 200 | \" + pm.response.code, function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Tempo de resposta menor que 100ms | \" + pm.response.responseTime + \"ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(100);",
+							"});",
+							"",
+							"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:5000/contacts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"contacts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Registra Contato Completo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1b198026-64b9-4c04-906e-e7cff2d45306",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code 201 | \" + pm.response.code, function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\t{\n        \"name\": \"Dev\",\n        \"mobilephone\": \"0552188887777\",\n        \"homephone\":   \"0552133333499\"\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:5000/contacts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"contacts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Valida POST - Registro de Contato",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0a6b9430-1034-493c-891f-f8e775049060",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json()[0];",
+							"",
+							"pm.test(\"Status code 200 | \" + pm.response.code, function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Tempo de resposta menor que 100ms | \" + pm.response.responseTime + \"ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(100);",
+							"});",
+							"",
+							"pm.test(\"Nome = Dev | \"+ jsonData.name, function () {",
+							"    ",
+							"    pm.expect(jsonData.name).to.eql('Dev');",
+							"});",
+							"",
+							"pm.test(\"Telefone Celular = 0552188887777 | \"+ jsonData.mobilephone, function () {",
+							"    ",
+							"    pm.expect(jsonData.mobilephone).to.eql('0552188887777');",
+							"});",
+							"",
+							"pm.test(\"Telefone Residencial = 0552133333499 | \"+ jsonData.homephone, function () {",
+							"    ",
+							"    pm.expect(jsonData.homephone).to.eql('0552133333499');",
+							"});",
+							"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:5000/contacts?mobilephone=0552188887777",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"contacts"
+					],
+					"query": [
+						{
+							"key": "mobilephone",
+							"value": "0552188887777"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bad request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4be2a8e2-75a4-47b5-93f3-33bd678cbd93",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code 400 | \" + pm.response.code, function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\t{\n        \"name\": \"Dev\",\n        \"mobilephone\": \"0552188887777\"Bad request,\n        \"homephone\":   \"0552133333499\"\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:5000/contacts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"contacts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Registra Contato sem nome - Permitido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "797a0e6e-84f3-4df3-a04b-88c5b28906d0",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code 201 | \" + pm.response.code, function () {",
+							"    pm.response.to.have.status(201);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\t{\n        \"name\": \"\",\n        \"mobilephone\": \"0552188887777\",\n        \"homephone\":   \"0552133333499\"\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:5000/contacts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"contacts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Registra Contato sem celular - Não permitido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c71426b6-bdfb-44df-97bb-80565cdaa08d",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code 400 | \" + pm.response.code, function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\t{\n        \"name\": \"Dev\",\n        \"mobilephone\": \"\",\n        \"homephone\":   \"0552133333499\"\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:5000/contacts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"contacts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Registra Contato sem tel. residencial - Permitido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "319c0400-5fb4-4918-aa41-c000b491fa33",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code 201 | \" + pm.response.code, function () {",
+							"    pm.response.to.have.status(201);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\t{\n        \"name\": \"Dev\",\n        \"mobilephone\": \"0552188887777\",\n        \"homephone\": \"\"\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:5000/contacts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"contacts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar Contato",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f7796305-53b8-4dfc-ab89-bc8582810050",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code 204 | \" + pm.response.code, function () {",
+							"    pm.response.to.have.status(204);",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Leonardo Kaneko\",\n  \"mobilephone\": \"21977778888\",\n  \"homephone\": \"2126227777\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/contacts/56d5efa8c82593800291c02b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"contacts",
+						"56d5efa8c82593800291c02b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Valida PUT - Atualização de Contato",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f227dd9c-4a0f-4c77-8fd4-ed5a4b23f2d1",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json()[0];",
+							"",
+							"pm.test(\"Status code 200 | \" + pm.response.code, function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Tempo de resposta menor que 100ms | \" + pm.response.responseTime + \"ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(100);",
+							"});",
+							"",
+							"pm.test(\"Nome = Leonardo Kaneko | \"+ jsonData.name, function () {",
+							"    ",
+							"    pm.expect(jsonData.name).to.eql('Leonardo Kaneko');",
+							"});",
+							"",
+							"pm.test(\"Telefone Celular = 21977778888 | \"+ jsonData.mobilephone, function () {",
+							"    ",
+							"    pm.expect(jsonData.mobilephone).to.eql('21977778888');",
+							"});",
+							"",
+							"pm.test(\"Telefone Residencial = 2126227777 | \"+ jsonData.homephone, function () {",
+							"    ",
+							"    pm.expect(jsonData.homephone).to.eql('2126227777');",
+							"});",
+							"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:5000/contacts?mobilephone=21977778888",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"contacts"
+					],
+					"query": [
+						{
+							"key": "mobilephone",
+							"value": "21977778888"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bad request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ac46570c-c0c0-450a-9fd5-465720901080",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code 400 | \" + pm.response.code, function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Leonardo Kaneko\",\n  \"mobilephone\": \"21977778888\",\n  \"homephone\": \"2126227777\"Bad Request\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/contacts/56d5efa8c82593800291c02b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"contacts",
+						"56d5efa8c82593800291c02b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar Contato - Not found",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bd90d1df-61fc-49d6-97c0-c14986207e29",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code 404 | \" + pm.response.code, function () {",
+							"    pm.response.to.have.status(404);",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Leonardo Kaneko\",\n  \"mobilephone\": \"21977778888\",\n  \"homephone\": \"2126227777\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/contacts/11d3008555d5d3700167fb11",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"contacts",
+						"11d3008555d5d3700167fb11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Internal Server Error",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d3d6d908-908e-448f-9dc6-a1fef8a0fa43",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code 500 | \" + pm.response.code, function () {",
+							"    pm.response.to.have.status(500);",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Leonardo Kaneko\",\n  \"mobilephone\": \"21977778888\",\n  \"homephone\": \"2126227777\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/contacts/klkadjlk121",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"contacts",
+						"klkadjlk121"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deleta Contato por ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ba7f678b-d9ef-40c5-8d19-0f146a21177d",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code 204 | \" + pm.response.code, function () {",
+							"    pm.response.to.have.status(204);",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:5000/contacts/56d5efa8c82593800291c02b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"contacts",
+						"56d5efa8c82593800291c02b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deleta Contato - Not found",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f7fbace4-64e3-40e9-b7b3-ff1f57b188ac",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code 404 | \" + pm.response.code, function () {",
+							"    pm.response.to.have.status(404);",
+							"});",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:5000/contacts/56d5efa8c82593800291c02b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"contacts",
+						"56d5efa8c82593800291c02b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Internal Server Error",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cab43ec0-5bf8-4daa-9107-99554064d554",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code 500 | \" + pm.response.code, function () {",
+							"    pm.response.to.have.status(500);",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:5000/contacts/lknlkl999",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"contacts",
+						"lknlkl999"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
