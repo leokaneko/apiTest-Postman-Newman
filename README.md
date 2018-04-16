@@ -1,4 +1,4 @@
-# API test with Postman and Newman - PhoneBook API by https://github.com/fredmoreira
+# API test with Postman and Newman - PhoneBook API by https://github.com/fredmoreira - Poke API https://pokeapi.co/
 
 
 #### Depedencies
@@ -13,3 +13,7 @@
 ### Run Postman test with Newman
 
 * newman run Postman/phone-book-testAPI.postman_collection.json
+* newman run Postman/Poke\ API.postman_collection.json
+
+
+
