@@ -1,0 +1,64 @@
+{
+	"info": {
+		"_postman_id": "b7aeed6c-761c-4688-9499-1c127fb8b09d",
+		"name": "Poke API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://pokeapi.co/api/v2/pokemon/1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e3a4b2d0-2e92-4520-8151-e0c00d0e268c",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"",
+							"pm.test(\"Response time is less than 2000ms | time: \" + pm.response.responseTime , function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);",
+							"});",
+							"",
+							"pm.test(\"Pokemon name = bulbasaur | name: \"+ jsonData.name, function () {",
+							"    ",
+							"    pm.expect(jsonData.name).to.eql('bulbasaur');",
+							"});",
+							"",
+							"pm.test(\"Pokemon id = 1 | id: \"+ jsonData.id, function () {",
+							"    ",
+							"    pm.expect(jsonData.id).to.eql(1);",
+							"});",
+							"",
+							"pm.test(\"Status code is 200 | \" + pm.response.code, function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://pokeapi.co/api/v2/pokemon/1",
+					"protocol": "http",
+					"host": [
+						"pokeapi",
+						"co"
+					],
+					"path": [
+						"api",
+						"v2",
+						"pokemon",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
